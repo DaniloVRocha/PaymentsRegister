@@ -10,44 +10,44 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.cerc.paymentsRegister.dto.EmployeeDTO;
-import com.cerc.paymentsRegister.model.Employee;
-import com.cerc.paymentsRegister.service.EmployeeService;
+import com.cerc.paymentsRegister.dto.PositionDTO;
+import com.cerc.paymentsRegister.model.Position;
+import com.cerc.paymentsRegister.service.PositionService;
 
 @RestController
-@RequestMapping(value="/employee")
-public class EmployeeController {
+@RequestMapping(value="/position")
+public class PositionController {
 	
 	@Autowired
-	private EmployeeService service;
+	private PositionService service;
 	
 	@RequestMapping(method = RequestMethod.GET)
-	public ResponseEntity<List<EmployeeDTO>> findAllEmployee(){
-		List<EmployeeDTO> employees = service.findAll();
-		return ResponseEntity.ok().body(employees);
+	public ResponseEntity<List<PositionDTO>> findAllPosition(){
+		List<PositionDTO> positions = service.findAll();
+		return ResponseEntity.ok().body(positions);
 	}
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	public ResponseEntity<Employee> findById(@PathVariable Long id){
-		Employee employee = service.findById(id);
-		return ResponseEntity.ok().body(employee);
+	public ResponseEntity<Position> findById(@PathVariable Long id){
+		Position position = service.findById(id);
+		return ResponseEntity.ok().body(position);
 	}
 	
 	@RequestMapping(method = RequestMethod.POST)
-	public ResponseEntity<Void> insertEmployee(@RequestBody Employee employee){
-		service.insertEmployee(employee);
+	public ResponseEntity<Void> insertEmployee(@RequestBody Position position){
+		service.insertPosition(position);
 		return ResponseEntity.ok().build();
 	}
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
 	public ResponseEntity<String> deleteEmployee(@PathVariable Long id) throws Exception{
-		service.deleteEmployee(id);
-		return ResponseEntity.ok().body("Funcionario Id: " + id + " Deletado com sucesso." );
+		service.deletePosition(id);
+		return ResponseEntity.ok().body("Cargo Id: " + id + " Deletado com sucesso." );
 	}
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-	public Employee updateEmployee(@RequestBody Employee employee, @PathVariable Long id){
-		return service.updateEmployee(id, employee);
+	public Position updateEmployee(@RequestBody Position position, @PathVariable Long id){
+		return service.updatePosition(id, position);
 	}
 	
 }

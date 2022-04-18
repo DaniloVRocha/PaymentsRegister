@@ -1,12 +1,12 @@
-package com.cerc.paymentsRegister.entity;
+package com.cerc.paymentsRegister.model;
 
 import java.time.LocalDate;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -18,15 +18,31 @@ public class Employee {
 	private Long id;
 
 	private String nome;
-
-//	private Cargo cargo;
+	
+	@OneToOne
+	private Position cargo;
 
 	private boolean ativo;
 	
-	@Column(name="admissao")
 	private LocalDate dataAdmissao;
-	@Column(name="horas")
+
 	private Double horasTrabalhadas;
+	
+	
+	public Employee() {
+		super();
+	}
+
+	public Employee(Long id, String nome, Position cargo, boolean ativo, LocalDate dataAdmissao,
+			Double horasTrabalhadas) {
+		super();
+		this.id = id;
+		this.nome = nome;
+		this.cargo = cargo;
+		this.ativo = ativo;
+		this.dataAdmissao = dataAdmissao;
+		this.horasTrabalhadas = horasTrabalhadas;
+	}
 
 	public Long getId() {
 		return id;
@@ -44,15 +60,15 @@ public class Employee {
 		this.nome = nome;
 	}
 
-//	public Cargo getCargo() {
-//		return cargo;
-//	}
-//
-//	public void setCargo(Cargo cargo) {
-//		this.cargo = cargo;
-//	}
+	public Position getCargo() {
+		return cargo;
+	}
 
-	public boolean isAtivo() {
+	public void setCargo(Position cargo) {
+		this.cargo = cargo;
+	}
+
+	public boolean getAtivo() {
 		return ativo;
 	}
 

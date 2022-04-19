@@ -4,32 +4,33 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "cargo")
+@Table(name = "position")
 public class Position {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
-	private String descricao;
-	
-	private Double salario;
-	
-	private String departamento;
-	
+
+	private String description;
+
+	private Double salary;
+	@OneToOne
+	private Departament departament;
+
 	public Position() {
 		super();
 	}
 
-	public Position(Long id, String descricao, Double salario, String departamento) {
+	public Position(Long id, String description, Double salary, Departament departament) {
 		super();
 		this.id = id;
-		this.descricao = descricao;
-		this.salario = salario;
-		this.departamento = departamento;
+		this.description = description;
+		this.salary = salary;
+		this.departament = departament;
 	}
 
 	public Long getId() {
@@ -40,28 +41,28 @@ public class Position {
 		this.id = id;
 	}
 
-	public String getDescricao() {
-		return descricao;
+	public String getDescription() {
+		return description;
 	}
 
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
-	public Double getSalario() {
-		return salario;
+	public Double getSalary() {
+		return salary;
 	}
 
-	public void setSalario(Double salario) {
-		this.salario = salario;
+	public void setSalary(Double salary) {
+		this.salary = salary;
 	}
 
-	public String getDepartamento() {
-		return departamento;
+	public Departament getDepartament() {
+		return departament;
 	}
 
-	public void setDepartamento(String departamento) {
-		this.departamento = departamento;
+	public void setDepartament(Departament departament) {
+		this.departament = departament;
 	}
 
 }

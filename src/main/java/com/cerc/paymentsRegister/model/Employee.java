@@ -12,36 +12,35 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "employee")
 public class Employee {
-	
+
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	private String nome;
-	
+	private String name;
+
 	@OneToOne
-	private Position cargo;
+	private Position position;
 
-	private boolean ativo;
-	
-	private LocalDate dataAdmissao;
+	private boolean active;
 
-	private Double horasTrabalhadas;
-	
-	
+	private LocalDate admissionDate;
+
+	private Double workHours;
+
 	public Employee() {
 		super();
 	}
 
-	public Employee(Long id, String nome, Position cargo, boolean ativo, LocalDate dataAdmissao,
-			Double horasTrabalhadas) {
+	public Employee(Long id, String name, Position position, boolean active, LocalDate admissionDate,
+			Double workHours) {
 		super();
 		this.id = id;
-		this.nome = nome;
-		this.cargo = cargo;
-		this.ativo = ativo;
-		this.dataAdmissao = dataAdmissao;
-		this.horasTrabalhadas = horasTrabalhadas;
+		this.name = name;
+		this.position = position;
+		this.active = active;
+		this.admissionDate = admissionDate;
+		this.workHours = workHours;
 	}
 
 	public Long getId() {
@@ -52,44 +51,44 @@ public class Employee {
 		this.id = id;
 	}
 
-	public String getNome() {
-		return nome;
+	public String getName() {
+		return name;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public Position getCargo() {
-		return cargo;
+	public Position getPosition() {
+		return position;
 	}
 
-	public void setCargo(Position cargo) {
-		this.cargo = cargo;
+	public void setPosition(Position position) {
+		this.position = position;
 	}
 
-	public boolean getAtivo() {
-		return ativo;
+	public boolean getActive() {
+		return active;
 	}
 
-	public void setAtivo(boolean ativo) {
-		this.ativo = ativo;
+	public void setActive(boolean active) {
+		this.active = active;
 	}
 
-	public LocalDate getDataAdmissao() {
-		return dataAdmissao;
+	public LocalDate getAdmissionDate() {
+		return admissionDate;
 	}
 
-	public void setDataAdmissao(LocalDate dataAdmissao) {
-		this.dataAdmissao = dataAdmissao;
+	public void setAdmissionDate(LocalDate admissionDate) {
+		this.admissionDate = admissionDate;
 	}
 
-	public Double getHorasTrabalhadas() {
-		return horasTrabalhadas;
+	public Double getWorkHours() {
+		return workHours;
 	}
 
-	public void setHorasTrabalhadas(Double horasTrabalhadas) {
-		this.horasTrabalhadas = horasTrabalhadas;
+	public void setWorkHours(Double workHours) {
+		this.workHours = workHours;
 	}
 
 }

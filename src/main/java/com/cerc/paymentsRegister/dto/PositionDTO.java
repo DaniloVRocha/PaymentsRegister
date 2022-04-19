@@ -1,14 +1,16 @@
 package com.cerc.paymentsRegister.dto;
 
+import com.cerc.paymentsRegister.model.Departament;
+
 public class PositionDTO {
-	
+
 	private Long id;
-	
-	private String descricao;
-	
-	private Double salario;
-	
-	private String departamento;
+
+	private String description;
+
+	private Double salary;
+
+	private Departament departament;
 
 	public Long getId() {
 		return id;
@@ -18,28 +20,28 @@ public class PositionDTO {
 		this.id = id;
 	}
 
-	public String getDescricao() {
-		return descricao;
+	public String getDescription() {
+		return description;
 	}
 
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
-	public Double getSalario() {
-		return salario;
+	public Double getSalary() {
+		return salary;
 	}
 
-	public void setSalario(Double salario) {
-		this.salario = salario;
+	public void setSalary(Double salary) {
+		this.salary = salary;
 	}
 
-	public String getDepartamento() {
-		return departamento;
+	public Departament getDepartament() {
+		return departament;
 	}
 
-	public void setDepartamento(String departamento) {
-		this.departamento = departamento;
+	public void setDepartament(Departament departament) {
+		this.departament = departament;
 	}
 
 }

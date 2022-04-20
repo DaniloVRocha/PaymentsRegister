@@ -1,13 +1,18 @@
 package com.cerc.paymentsRegister.model;
 
 import java.time.LocalDate;
+import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "employee")
@@ -19,6 +24,9 @@ public class Employee {
 
 	private String name;
 
+	@Column(unique = true)
+	private String cpf;
+
 	@OneToOne
 	private Position position;
 
@@ -26,21 +34,22 @@ public class Employee {
 
 	private LocalDate admissionDate;
 
-	private Double workHours;
+	@OneToMany
+	@JsonIgnore
+	private List<Payroll> payroll;
 
 	public Employee() {
 		super();
 	}
 
-	public Employee(Long id, String name, Position position, boolean active, LocalDate admissionDate,
-			Double workHours) {
+	public Employee(Long id, String name, String cpf, Position position, boolean active, LocalDate admissionDate) {
 		super();
 		this.id = id;
 		this.name = name;
+		this.cpf = cpf;
 		this.position = position;
 		this.active = active;
 		this.admissionDate = admissionDate;
-		this.workHours = workHours;
 	}
 
 	public Long getId() {
@@ -57,6 +66,14 @@ public class Employee {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public String getCpf() {
+		return cpf;
+	}
+
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
 	}
 
 	public Position getPosition() {
@@ -83,12 +100,12 @@ public class Employee {
 		this.admissionDate = admissionDate;
 	}
 
-	public Double getWorkHours() {
-		return workHours;
+	public List<Payroll> getPayroll() {
+		return payroll;
 	}
 
-	public void setWorkHours(Double workHours) {
-		this.workHours = workHours;
+	public void setPayroll(List<Payroll> payroll) {
+		this.payroll = payroll;
 	}
 
 }

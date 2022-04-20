@@ -54,14 +54,11 @@ public class EmployeeService {
 	
 	@Transactional
 	private void updateData(Employee newEmployee, Employee employee) {
-		if (employee.getName() != null) {
+		if (newEmployee.getName() != null) {
 			newEmployee.setName(employee.getName());
 		}
 		if (newEmployee.getAdmissionDate() != null) {
 			newEmployee.setAdmissionDate(employee.getAdmissionDate());
-		}
-		if (newEmployee.getWorkHours() != null) {
-			newEmployee.setWorkHours(employee.getWorkHours());
 		}
 		if (newEmployee.getPosition() != null) {
 			newEmployee.setPosition(employee.getPosition());

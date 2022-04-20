@@ -16,7 +16,6 @@ public class EmployeeParser {
 		dto.setActive(entidade.getActive());
 		dto.setPosition(entidade.getPosition());
 		dto.setAdmissionDate(entidade.getAdmissionDate());
-		dto.setWorkHours(entidade.getWorkHours());
 
 		return dto;
 	}

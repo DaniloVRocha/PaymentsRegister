@@ -1,47 +1,55 @@
 package com.cerc.paymentsRegister.model;
 
 import java.time.LocalDate;
+import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "employee")
 public class Employee {
-	
+
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	private String nome;
-	
+	private String name;
+
+	@Column(unique = true)
+	private String cpf;
+
 	@OneToOne
-	private Position cargo;
+	private Position position;
 
-	private boolean ativo;
-	
-	private LocalDate dataAdmissao;
+	private boolean active;
 
-	private Double horasTrabalhadas;
-	
-	
+	private LocalDate admissionDate;
+
+	@OneToMany
+	@JsonIgnore
+	private List<Payroll> payroll;
+
 	public Employee() {
 		super();
 	}
 
-	public Employee(Long id, String nome, Position cargo, boolean ativo, LocalDate dataAdmissao,
-			Double horasTrabalhadas) {
+	public Employee(Long id, String name, String cpf, Position position, boolean active, LocalDate admissionDate) {
 		super();
 		this.id = id;
-		this.nome = nome;
-		this.cargo = cargo;
-		this.ativo = ativo;
-		this.dataAdmissao = dataAdmissao;
-		this.horasTrabalhadas = horasTrabalhadas;
+		this.name = name;
+		this.cpf = cpf;
+		this.position = position;
+		this.active = active;
+		this.admissionDate = admissionDate;
 	}
 
 	public Long getId() {
@@ -52,44 +60,52 @@ public class Employee {
 		this.id = id;
 	}
 
-	public String getNome() {
-		return nome;
+	public String getName() {
+		return name;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public Position getCargo() {
-		return cargo;
+	public String getCpf() {
+		return cpf;
 	}
 
-	public void setCargo(Position cargo) {
-		this.cargo = cargo;
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
 	}
 
-	public boolean getAtivo() {
-		return ativo;
+	public Position getPosition() {
+		return position;
 	}
 
-	public void setAtivo(boolean ativo) {
-		this.ativo = ativo;
+	public void setPosition(Position position) {
+		this.position = position;
 	}
 
-	public LocalDate getDataAdmissao() {
-		return dataAdmissao;
+	public boolean isActive() {
+		return active;
 	}
 
-	public void setDataAdmissao(LocalDate dataAdmissao) {
-		this.dataAdmissao = dataAdmissao;
+	public void setActive(boolean active) {
+		this.active = active;
 	}
 
-	public Double getHorasTrabalhadas() {
-		return horasTrabalhadas;
+	public LocalDate getAdmissionDate() {
+		return admissionDate;
 	}
 
-	public void setHorasTrabalhadas(Double horasTrabalhadas) {
-		this.horasTrabalhadas = horasTrabalhadas;
+	public void setAdmissionDate(LocalDate admissionDate) {
+		this.admissionDate = admissionDate;
+	}
+
+	public List<Payroll> getPayroll() {
+		return payroll;
+	}
+
+	public void setPayroll(List<Payroll> payroll) {
+		this.payroll = payroll;
 	}
 
 }

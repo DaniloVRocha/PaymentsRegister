@@ -5,17 +5,18 @@ import java.time.LocalDate;
 import com.cerc.paymentsRegister.model.Position;
 
 public class EmployeeDTO {
+
 	private Long id;
 
-	private String nome;
+	private String name;
 
-	private Position cargo;
+	private Position position;
 
-	private boolean ativo;
-	
-	private LocalDate dataAdmissao;
+	private boolean active;
 
-	private Double horasTrabalhadas;
+	private LocalDate admissionDate;
+
+	private Double workHours;
 
 	public Long getId() {
 		return id;
@@ -25,45 +26,44 @@ public class EmployeeDTO {
 		this.id = id;
 	}
 
-	public String getNome() {
-		return nome;
+	public String getName() {
+		return name;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public Position getCargo() {
-		return cargo;
+	public Position getPosition() {
+		return position;
 	}
 
-	public void setCargo(Position cargo) {
-		this.cargo = cargo;
+	public void setPosition(Position position) {
+		this.position = position;
 	}
 
-	public boolean isAtivo() {
-		return ativo;
+	public boolean isActive() {
+		return active;
 	}
 
-	public void setAtivo(boolean ativo) {
-		this.ativo = ativo;
+	public void setActive(boolean active) {
+		this.active = active;
 	}
 
-	public LocalDate getDataAdmissao() {
-		return dataAdmissao;
+	public LocalDate getAdmissionDate() {
+		return admissionDate;
 	}
 
-	public void setDataAdmissao(LocalDate dataAdmissao) {
-		this.dataAdmissao = dataAdmissao;
+	public void setAdmissionDate(LocalDate admissionDate) {
+		this.admissionDate = admissionDate;
 	}
 
-	public Double getHorasTrabalhadas() {
-		return horasTrabalhadas;
+	public Double getWorkHours() {
+		return workHours;
 	}
 
-	public void setHorasTrabalhadas(Double horasTrabalhadas) {
-		this.horasTrabalhadas = horasTrabalhadas;
+	public void setWorkHours(Double workHours) {
+		this.workHours = workHours;
 	}
-	
-	
+
 }

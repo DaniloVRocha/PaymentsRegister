@@ -1,5 +1,6 @@
 package com.cerc.paymentsRegister.controller;
 
+import java.net.URI;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.cerc.paymentsRegister.dto.EmployeeDTO;
 import com.cerc.paymentsRegister.model.Employee;
@@ -36,13 +38,15 @@ public class EmployeeController {
 	@RequestMapping(method = RequestMethod.POST)
 	public ResponseEntity<Void> insertEmployee(@RequestBody Employee employee){
 		service.insertEmployee(employee);
-		return ResponseEntity.ok().build();
+		URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
+				.path("/{id}").buildAndExpand(employee.getId()).toUri();
+		return ResponseEntity.created(uri).build();
 	}
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
 	public ResponseEntity<String> deleteEmployee(@PathVariable Long id) throws Exception{
 		service.deleteEmployee(id);
-		return ResponseEntity.ok().body("Funcionario Id: " + id + " Deletado com sucesso." );
+		return ResponseEntity.ok().body("Employee Id: " + id + " Deleted." );
 	}
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)

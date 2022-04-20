@@ -32,13 +32,13 @@ public class EmployeeService {
 	public Employee findById(Long id) {
 		Optional<Employee> employee = repository.findById(id);
 		return employee.orElseThrow(() -> new NotFoundException(
-				"Funcionario não Encontrado! Id: " + id + ", Tipo : " + Employee.class.getName(), null));
+				"Employee not found! Id: " + id + ", Type : " + Employee.class.getName(), null));
 	}
 
 	public void deleteEmployee(Long id) throws Exception {
 		Employee employee = findById(id);
 		if(employee == null) {
-			throw new NotFoundException("Funcionario não Encontrado");
+			throw new NotFoundException("Employee not found");
 		}
 		repository.deleteById(id);
 	}
@@ -46,7 +46,7 @@ public class EmployeeService {
 	public Employee updateEmployee(Long id, Employee employee) {
 		Employee newEmployee = findById(id);
 		if(newEmployee == null) {
-			throw new NotFoundException("Funcionario não Encontrado");
+			throw new NotFoundException("Employee not found");
 		}
 		updateData(newEmployee, employee);
 		return repository.save(newEmployee);

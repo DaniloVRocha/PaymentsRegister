@@ -47,11 +47,13 @@ public class DBService {
 		Position pos = new Position(null, "Desenvolvedor", 3400.0, dep);
 		Position pos2 = new Position(null, "Gerente de Projetos", 5400.0, dep);
 		Position pos3 = new Position(null, "Lider Técnico", 7400.0, dep);
+		Position pos4 = new Position(null, "Gerente RH", 5400.0, dep);
 
 		Employee emp = new Employee(null, "Brunno","321312312313123", pos2, true, LocalDate.of(2022, 04, 18));
 		Employee emp2 = new Employee(null, "Danilo","35436456456456", pos, true, LocalDate.of(2022, 04, 18));
 		Employee emp3 = new Employee(null, "Renata","3123123123123", pos3, true, LocalDate.of(2022, 04, 18));
-		Employee emp4 = new Employee(null, "João", "312312356456", pos, true, LocalDate.of(2022, 04, 18));
+		Employee emp4 = new Employee(null, "João", "312312356456", pos4, true, LocalDate.of(2022, 04, 18));
+		
 		
 		Payroll payroll = new Payroll(null, emp, 168.0 ,Month.MAY);
 		

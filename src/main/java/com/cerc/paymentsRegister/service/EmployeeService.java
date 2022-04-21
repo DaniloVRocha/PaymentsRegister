@@ -17,27 +17,28 @@ import com.cerc.paymentsRegister.service.exception.NotFoundException;
 
 @Service
 public class EmployeeService {
-	
+
 	@Autowired
 	private EmployeeRepository repository;
-	
-	public List<EmployeeDTO> findAll(){
+
+	public List<EmployeeDTO> findAll() {
 		return repository.findAll().stream().map(EmployeeParser.get()::dto).collect(Collectors.toList());
 	}
-	
+
 	public Employee insertEmployee(Employee employee) {
 		return repository.save(employee);
 	}
-	
+
 	public Employee findById(Long id) {
 		Optional<Employee> employee = repository.findById(id);
+
 		return employee.orElseThrow(() -> new NotFoundException(
 				"Employee not found! Id: " + id + ", Type : " + Employee.class.getName(), null));
 	}
 
 	public void deleteEmployee(Long id) throws Exception {
 		Employee employee = findById(id);
-		if(employee == null) {
+		if (employee == null) {
 			throw new NotFoundException("Employee not found");
 		}
 		repository.deleteById(id);
@@ -45,13 +46,14 @@ public class EmployeeService {
 
 	public Employee updateEmployee(Long id, Employee employee) {
 		Employee newEmployee = findById(id);
-		if(newEmployee == null) {
+		if (newEmployee == null) {
 			throw new NotFoundException("Employee not found");
 		}
 		updateData(newEmployee, employee);
+
 		return repository.save(newEmployee);
 	}
-	
+
 	@Transactional
 	private void updateData(Employee newEmployee, Employee employee) {
 		if (newEmployee.getName() != null) {

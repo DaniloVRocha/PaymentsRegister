@@ -38,24 +38,6 @@ public class DBService {
 	private EmployeeRepository employeeRepository;
 	@Autowired
 	private PositionRepository positionRepository;
-  @Autowired
-	private DepartamentRepository departamentRepository;
-
-
-	public void instantiateTestDatabase() throws ParseException {
-
-	@Autowired
-	private DepartamentRepository departamentRepository;
-	@Autowired
-	private PayrollRepository payrollRepository;	
-	@Autowired
-	private DiscountRepository discountRepository;
-	@Autowired
-	private PaymentRepository paymentRepository;
-	@Autowired
-	private EmployeeRepository employeeRepository;
-	@Autowired
-	private PositionRepository positionRepository;
 
 
 	public void instantiateTestDatabase() throws ParseException {

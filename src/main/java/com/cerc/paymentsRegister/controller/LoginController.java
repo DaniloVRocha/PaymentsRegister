@@ -17,7 +17,7 @@ import com.cerc.paymentsRegister.service.EmployeeService;
 @RequestMapping(value = "/employee/login")
 public class LoginController {
 
-	@Autowired	
+	@Autowired
 	private EmployeeService service;
 
 	@Autowired
@@ -30,4 +30,5 @@ public class LoginController {
 				.toUri();
 		return ResponseEntity.created(uri).build();
 	}
+
 }

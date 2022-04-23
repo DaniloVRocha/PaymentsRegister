@@ -34,19 +34,19 @@ public class PositionController {
 	}
 	
 	@RequestMapping(method = RequestMethod.POST)
-	public ResponseEntity<Void> insertEmployee(@RequestBody Position position){
+	public ResponseEntity<Void> insertPosition(@RequestBody Position position){
 		service.insertPosition(position);
 		return ResponseEntity.ok().build();
 	}
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-	public ResponseEntity<String> deleteEmployee(@PathVariable Long id) throws Exception{
+	public ResponseEntity<String> deletePosition(@PathVariable Long id) throws Exception{
 		service.deletePosition(id);
 		return ResponseEntity.ok().body("Cargo Id: " + id + " Deletado com sucesso." );
 	}
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-	public Position updateEmployee(@RequestBody Position position, @PathVariable Long id){
+	public Position updatePosition(@RequestBody Position position, @PathVariable Long id){
 		return service.updatePosition(id, position);
 	}
 	

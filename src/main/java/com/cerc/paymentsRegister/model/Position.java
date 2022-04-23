@@ -21,8 +21,6 @@ public class Position {
 	@OneToOne
 	private Department department;
 
-	
-
 	public Position() {
 		super();
 	}

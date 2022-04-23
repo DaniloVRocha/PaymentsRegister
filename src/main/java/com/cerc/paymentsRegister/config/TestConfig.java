@@ -9,16 +9,16 @@ import org.springframework.context.annotation.Profile;
 
 import com.cerc.paymentsRegister.service.DBService;
 
-/*@Configuration
+@Configuration
 @Profile("test")
 public class TestConfig {
 	
-	@Autowired
+	/*@Autowired
 	private DBService dbService;
 
 	@Bean
 	public boolean instantiateDatabase() throws ParseException {
 		dbService.instantiateTestDatabase();
 		return true;
-	}
-}*/
+	}*/
+}

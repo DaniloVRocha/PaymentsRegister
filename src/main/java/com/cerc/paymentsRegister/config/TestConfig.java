@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Profile;
 
 import com.cerc.paymentsRegister.service.DBService;
 
-@Configuration
+/*@Configuration
 @Profile("test")
 public class TestConfig {
 	
@@ -21,4 +21,4 @@ public class TestConfig {
 		dbService.instantiateTestDatabase();
 		return true;
 	}
-}
+}*/

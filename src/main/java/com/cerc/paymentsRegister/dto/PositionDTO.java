@@ -1,6 +1,6 @@
 package com.cerc.paymentsRegister.dto;
 
-import com.cerc.paymentsRegister.model.Departament;
+import com.cerc.paymentsRegister.model.Department;
 
 public class PositionDTO {
 
@@ -10,7 +10,7 @@ public class PositionDTO {
 
 	private Double salary;
 
-	private Departament departament;
+	private Department department;
 
 	public Long getId() {
 		return id;
@@ -36,12 +36,12 @@ public class PositionDTO {
 		this.salary = salary;
 	}
 
-	public Departament getDepartament() {
-		return departament;
+	public Department getDepartment() {
+		return department;
 	}
 
-	public void setDepartament(Departament departament) {
-		this.departament = departament;
+	public void setDepartment(Department department) {
+		this.department = department;
 	}
 
 }

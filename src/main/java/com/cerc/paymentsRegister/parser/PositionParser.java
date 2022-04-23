@@ -14,7 +14,7 @@ public class PositionParser {
 		dto.setId(entidade.getId());
 		dto.setDescription(entidade.getDescription());
 		dto.setSalary(entidade.getSalary());
-		dto.setDepartament(entidade.getDepartament());
+		dto.setDepartment(entidade.getDepartment());
 
 		return dto;
 	}

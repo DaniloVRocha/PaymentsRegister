@@ -59,8 +59,8 @@ public class PositionService {
 		if (position.getDescription() != null) {
 			newPosition.setDescription(position.getDescription());
 		}
-		if (position.getDepartament() != null) {
-			newPosition.setDepartament(position.getDepartament());
+		if (position.getDepartment() != null) {
+			newPosition.setDepartment(position.getDepartment());
 		}
 		if (position.getSalary() != null) {
 			newPosition.setSalary(position.getSalary());

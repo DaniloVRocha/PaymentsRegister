@@ -19,18 +19,20 @@ public class Position {
 
 	private Double salary;
 	@OneToOne
-	private Departament departament;
+	private Department department;
+
+	
 
 	public Position() {
 		super();
 	}
 
-	public Position(Long id, String description, Double salary, Departament departament) {
+	public Position(Long id, String description, Double salary, Department department) {
 		super();
 		this.id = id;
 		this.description = description;
 		this.salary = salary;
-		this.departament = departament;
+		this.department = department;
 	}
 
 	public Long getId() {
@@ -57,12 +59,11 @@ public class Position {
 		this.salary = salary;
 	}
 
-	public Departament getDepartament() {
-		return departament;
+	public Department getDepartment() {
+		return department;
 	}
 
-	public void setDepartament(Departament departament) {
-		this.departament = departament;
+	public void setDepartment(Department department) {
+		this.department = department;
 	}
-
 }

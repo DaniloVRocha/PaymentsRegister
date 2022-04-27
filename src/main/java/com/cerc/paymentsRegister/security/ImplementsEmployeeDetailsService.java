@@ -1,5 +1,5 @@
 package com.cerc.paymentsRegister.security;
-/*
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,4 +28,4 @@ public class ImplementsEmployeeDetailsService implements UserDetailsService{
 		}
 		return new User(employee.getName(), employee.getPassword(), true, true, true, true, employee.getAuthorities());
 	}
-}*/
+}

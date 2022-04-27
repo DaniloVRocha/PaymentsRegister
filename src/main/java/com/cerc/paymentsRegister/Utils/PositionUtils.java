@@ -1,6 +1,4 @@
-package com.cerc.paymentsRegister.Utils;
-
-import com.cerc.paymentsRegister.model.Position;
+package com.cerc.paymentsRegister.utils;
 
 public class PositionUtils {
 	private static final String positionName = "Test Positon";

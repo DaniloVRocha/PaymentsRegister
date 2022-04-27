@@ -35,10 +35,10 @@ public class Employee implements UserDetails, Serializable{
 	          name = "role_id", referencedColumnName = "roleName")) 
     private List<LoginRole> roles;
 
-	@Column(unique = true)
 	private String cpf;
-
-	@OneToOne
+	
+	@ManyToOne
+	@JoinColumn(name="fk_position_id")
 	private Position position;
 	
 	private boolean active;

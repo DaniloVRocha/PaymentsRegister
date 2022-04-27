@@ -13,12 +13,12 @@ import com.cerc.paymentsRegister.service.DBService;
 @Profile("test")
 public class TestConfig {
 	
-	/*@Autowired
+	@Autowired
 	private DBService dbService;
 
 	@Bean
 	public boolean instantiateDatabase() throws ParseException {
 		dbService.instantiateTestDatabase();
 		return true;
-	}*/
+	}
 }

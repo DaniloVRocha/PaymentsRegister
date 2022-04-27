@@ -6,8 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 
-//import org.springframework.security.core.GrantedAuthority;
-/*
+import org.springframework.security.core.GrantedAuthority;
+
 @Entity
 public class LoginRole implements GrantedAuthority{
 	@Id
@@ -38,4 +38,4 @@ public class LoginRole implements GrantedAuthority{
 		return this.roleName;
 	}
 	
-}*/
+}

@@ -7,16 +7,16 @@ import java.util.List;
 
 import javax.persistence.*;
 
-/*import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;*/
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "employee") 
-public class Employee /*implements UserDetails, Serializable*/{
+public class Employee implements UserDetails, Serializable{
 
-	//private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,7 +24,7 @@ public class Employee /*implements UserDetails, Serializable*/{
 
 	private String name;
 	
-	/*private String password;
+	private String password;
 	
 	@ManyToMany
 	@JoinTable( 
@@ -33,7 +33,7 @@ public class Employee /*implements UserDetails, Serializable*/{
 	          name = "usuario_id", referencedColumnName = "id"), 
 	        inverseJoinColumns = @JoinColumn(
 	          name = "role_id", referencedColumnName = "roleName")) 
-    private List<LoginRole> roles;*/
+    private List<LoginRole> roles;
 
 	@Column(unique = true)
 	private String cpf;
@@ -75,13 +75,13 @@ public class Employee /*implements UserDetails, Serializable*/{
 	public String getName() {
 		return name;
 	}
-	/*
+	
 	//=============!!!! REMOVER ISSO AQUI MAIS TARDE !!!!===============
 	public String getUsername() {
 		return name;
 	}
 	//=============!!!!==============================!!!!===============
-	 */
+	
 	public void setName(String name) {
 		this.name = name;
 	}
@@ -126,7 +126,7 @@ public class Employee /*implements UserDetails, Serializable*/{
 		this.payroll = payroll;
 	}
 	
-	/*public String getPassword() {
+	public String getPassword() {
 		return password;
 	}
 
@@ -162,6 +162,6 @@ public class Employee /*implements UserDetails, Serializable*/{
 	public boolean isEnabled() {
 		// TODO Auto-generated method stub
 		return true;
-	}*/
+	}
 
 }

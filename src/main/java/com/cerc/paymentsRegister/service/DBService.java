@@ -52,11 +52,13 @@ public class DBService {
 		Position pos4 = new Position(null, "Gerente RH", 5400.0, dep);
 		
 		positionRepository.saveAll(Arrays.asList(pos, pos2, pos3,pos4));
+		
+		//Senha = "senhaManeira"
 
-		Employee emp = new Employee(null, "Brunno","321312312313123", "senhaManeira", pos2, true, LocalDate.of(2022, 04, 18));
-		Employee emp2 = new Employee(null, "Danilo","35436456456456", "senhaManeira", pos, true, LocalDate.of(2022, 04, 18));
-		Employee emp3 = new Employee(null, "Renata","3123123123123", "senhaManeira", pos3, true, LocalDate.of(2022, 04, 18));
-		Employee emp4 = new Employee(null, "João", "312312356456", "senhaManeira", pos4, true, LocalDate.of(2022, 04, 18));
+		Employee emp = new Employee(null, "Brunno", "$2a$10$GfMcIBNFkQOTPv8x/2KMUuWp6qcN4JaPi9honVKgUVDm4U0oh.05i", "321312312313123", pos2, true, LocalDate.of(2022, 04, 18));
+		Employee emp2 = new Employee(null, "Danilo","$2a$10$GfMcIBNFkQOTPv8x/2KMUuWp6qcN4JaPi9honVKgUVDm4U0oh.05i", "321312312313123", pos, true, LocalDate.of(2022, 04, 18));
+		Employee emp3 = new Employee(null, "Renata","$2a$10$GfMcIBNFkQOTPv8x/2KMUuWp6qcN4JaPi9honVKgUVDm4U0oh.05i", "321312312313123", pos3, true, LocalDate.of(2022, 04, 18));
+		Employee emp4 = new Employee(null, "João", "$2a$10$GfMcIBNFkQOTPv8x/2KMUuWp6qcN4JaPi9honVKgUVDm4U0oh.05i", "321312312313123", pos4, true, LocalDate.of(2022, 04, 18));
 		
 		employeeRepository.saveAll(Arrays.asList(emp, emp2, emp3, emp4));
 		

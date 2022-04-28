@@ -57,7 +57,7 @@ public class Employee implements UserDetails, Serializable{
 		super();
 		this.id = id;
 		this.name = name;
-		//this.password = password;
+		this.password = password;
 		this.cpf = cpf;
 		this.position = position;
 		this.active = active;

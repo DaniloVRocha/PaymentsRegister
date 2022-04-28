@@ -9,6 +9,8 @@ public class EmployeeDTO {
 	private Long id;
 
 	private String name;
+	
+	private String password;
 
 	private Position position;
 
@@ -17,6 +19,8 @@ public class EmployeeDTO {
 	private LocalDate admissionDate;
 
 	private Double workHours;
+	
+	
 
 	public Long getId() {
 		return id;
@@ -32,6 +36,14 @@ public class EmployeeDTO {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+	
+	public String getPassword() {
+		return password;
+	}
+	
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	public Position getPosition() {

@@ -5,7 +5,14 @@ import java.time.LocalDate;
 import java.util.Collection;
 import java.util.List;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -14,10 +21,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "employee") 
-public class Employee implements UserDetails, Serializable{
+public class Employee {
 
-	private static final long serialVersionUID = 1L;
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -26,15 +31,6 @@ public class Employee implements UserDetails, Serializable{
 	
 	private String password;
 	
-	@ManyToMany
-	@JoinTable( 
-	        name = "usuarios_roles", 
-	        joinColumns = @JoinColumn(
-	          name = "usuario_id", referencedColumnName = "id"), 
-	        inverseJoinColumns = @JoinColumn(
-	          name = "role_id", referencedColumnName = "roleName")) 
-    private List<LoginRole> roles;
-
 	private String cpf;
 	
 	@ManyToOne
@@ -76,7 +72,7 @@ public class Employee implements UserDetails, Serializable{
 		return name;
 	}
 	
-	//=============!!!! REMOVER ISSO AQUI MAIS TARDE !!!!===============
+	//=============!!!! VERIFICAR ISSO AQUI MAIS TARDE !!!!===============
 	public String getUsername() {
 		return name;
 	}
@@ -134,34 +130,4 @@ public class Employee implements UserDetails, Serializable{
 		this.password = password;
 	}
 	
-	@Override
-	public Collection<? extends GrantedAuthority> getAuthorities() {
-		// TODO Auto-generated method stub
-		return (Collection<? extends GrantedAuthority>) this.roles;
-	}
-
-	@Override
-	public boolean isAccountNonExpired() {
-		// TODO Auto-generated method stub
-		return true;
-	}
-
-	@Override
-	public boolean isAccountNonLocked() {
-		// TODO Auto-generated method stub
-		return true;
-	}
-
-	@Override
-	public boolean isCredentialsNonExpired() {
-		// TODO Auto-generated method stub
-		return true;
-	}
-
-	@Override
-	public boolean isEnabled() {
-		// TODO Auto-generated method stub
-		return true;
-	}
-
 }

@@ -55,10 +55,10 @@ public class DBService {
 		
 		//Senha = "senhaManeira"
 
-		Employee emp = new Employee(null, "Brunno", "$2a$10$GfMcIBNFkQOTPv8x/2KMUuWp6qcN4JaPi9honVKgUVDm4U0oh.05i", "321312312313123", pos2, true, LocalDate.of(2022, 04, 18));
-		Employee emp2 = new Employee(null, "Danilo","$2a$10$GfMcIBNFkQOTPv8x/2KMUuWp6qcN4JaPi9honVKgUVDm4U0oh.05i", "321312312313123", pos, true, LocalDate.of(2022, 04, 18));
-		Employee emp3 = new Employee(null, "Renata","$2a$10$GfMcIBNFkQOTPv8x/2KMUuWp6qcN4JaPi9honVKgUVDm4U0oh.05i", "321312312313123", pos3, true, LocalDate.of(2022, 04, 18));
-		Employee emp4 = new Employee(null, "João", "$2a$10$GfMcIBNFkQOTPv8x/2KMUuWp6qcN4JaPi9honVKgUVDm4U0oh.05i", "321312312313123", pos4, true, LocalDate.of(2022, 04, 18));
+		Employee emp = new Employee(null, "Brunno", "brunno@paymentsregister.com.br","$2a$10$GfMcIBNFkQOTPv8x/2KMUuWp6qcN4JaPi9honVKgUVDm4U0oh.05i", "321312312313123", pos2, true, LocalDate.of(2022, 04, 18));
+		Employee emp2 = new Employee(null, "Danilo","danilo@paymentsregister.com.br","$2a$10$GfMcIBNFkQOTPv8x/2KMUuWp6qcN4JaPi9honVKgUVDm4U0oh.05i", "321312312313123", pos, true, LocalDate.of(2022, 04, 18));
+		Employee emp3 = new Employee(null, "Renata","renata@paymentsregister.com.br","$2a$10$GfMcIBNFkQOTPv8x/2KMUuWp6qcN4JaPi9honVKgUVDm4U0oh.05i", "321312312313123", pos3, true, LocalDate.of(2022, 04, 18));
+		Employee emp4 = new Employee(null, "João","joao@paymentsregister.com.br", "$2a$10$GfMcIBNFkQOTPv8x/2KMUuWp6qcN4JaPi9honVKgUVDm4U0oh.05i", "321312312313123", pos4, true, LocalDate.of(2022, 04, 18));
 		
 		employeeRepository.saveAll(Arrays.asList(emp, emp2, emp3, emp4));
 		

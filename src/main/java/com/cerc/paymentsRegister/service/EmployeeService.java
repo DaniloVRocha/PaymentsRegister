@@ -65,5 +65,8 @@ public class EmployeeService {
 		if (newEmployee.getPosition() != null) {
 			newEmployee.setPosition(employee.getPosition());
 		}
+		if (newEmployee.getEmail() != null) {
+			newEmployee.setEmail(employee.getEmail());
+		}
 	}
 }

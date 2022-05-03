@@ -9,18 +9,18 @@ public class EmployeeDTO {
 	private Long id;
 
 	private String name;
-	
+
+	private String email;
+
 	private String password;
+
+	private String cpf;
 
 	private Position position;
 
 	private boolean active;
 
 	private LocalDate admissionDate;
-
-	private Double workHours;
-	
-	
 
 	public Long getId() {
 		return id;
@@ -37,13 +37,29 @@ public class EmployeeDTO {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
 	public String getPassword() {
 		return password;
 	}
-	
+
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public String getCpf() {
+		return cpf;
+	}
+
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
 	}
 
 	public Position getPosition() {
@@ -68,14 +84,6 @@ public class EmployeeDTO {
 
 	public void setAdmissionDate(LocalDate admissionDate) {
 		this.admissionDate = admissionDate;
-	}
-
-	public Double getWorkHours() {
-		return workHours;
-	}
-
-	public void setWorkHours(Double workHours) {
-		this.workHours = workHours;
 	}
 
 }

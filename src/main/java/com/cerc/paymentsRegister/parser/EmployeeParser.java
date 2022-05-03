@@ -13,6 +13,9 @@ public class EmployeeParser {
 
 		dto.setId(entidade.getId());
 		dto.setName(entidade.getName());
+		dto.setEmail(entidade.getEmail());
+		dto.setPassword(entidade.getPassword());
+		dto.setCpf(entidade.getCpf());
 		dto.setActive(entidade.getActive());
 		dto.setPosition(entidade.getPosition());
 		dto.setAdmissionDate(entidade.getAdmissionDate());

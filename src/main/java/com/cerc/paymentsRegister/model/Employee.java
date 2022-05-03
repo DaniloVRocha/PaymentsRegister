@@ -25,6 +25,8 @@ public class Employee {
 
 	private String name;
 	
+	private String email;
+	
 	private String password;
 	
 	private String cpf;
@@ -44,11 +46,16 @@ public class Employee {
 	public Employee() {
 		super();
 	}
+	
+	public Employee(Object object, String string, String string2, String string3, String string4, Position pos2, boolean b, LocalDate localDate) {
+		super();
+	}
 
-	public Employee(Long id, String name, String password, String cpf, Position position, boolean active, LocalDate admissionDate) {
+	public Employee(Long id, String name, String email, String password, String cpf, Position position, boolean active, LocalDate admissionDate) {
 		super();
 		this.id = id;
 		this.name = name;
+		this.email= email; 
 		this.password = password;
 		this.cpf = cpf;
 		this.position = position;
@@ -70,7 +77,7 @@ public class Employee {
 	
 	//=============!!!! VERIFICAR ISSO AQUI MAIS TARDE !!!!===============
 	public String getUsername() {
-		return name;
+		return email;
 	}
 	//=============!!!!==============================!!!!===============
 	
@@ -80,6 +87,14 @@ public class Employee {
 
 	public String getCpf() {
 		return cpf;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public void setCpf(String cpf) {

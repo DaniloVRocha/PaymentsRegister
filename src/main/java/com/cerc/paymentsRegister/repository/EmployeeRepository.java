@@ -8,6 +8,6 @@ import com.cerc.paymentsRegister.model.Employee;
 
 public interface EmployeeRepository extends JpaRepository<Employee, Long>{
 	Employee findByName(String name);
-	@Query("SELECT e FROM Employee e WHERE e.name = :name")
-	public Employee getByUsername(@Param("name")String name);
+	@Query("SELECT e FROM Employee e WHERE e.email = :email")
+	public Employee getByUsername(String email);
 }

@@ -5,10 +5,13 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
@@ -23,19 +26,19 @@ public class EmployeeController {
 	@Autowired
 	private EmployeeService service;
 	
-	@RequestMapping(method = RequestMethod.GET)
+	@GetMapping(value ="/show-all")
 	public ResponseEntity<List<EmployeeDTO>> findAllEmployee(){
 		List<EmployeeDTO> employees = service.findAll();
 		return ResponseEntity.ok().body(employees);
 	}
 	
-	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
+	@GetMapping(value = "/{id}")
 	public ResponseEntity<Employee> findById(@PathVariable Long id){
 		Employee employee = service.findById(id);
 		return ResponseEntity.ok().body(employee);
 	}
 	
-	@RequestMapping(method = RequestMethod.POST)
+	@PostMapping(value = "/new")
 	public ResponseEntity<Void> insertEmployee(@RequestBody Employee employee){
 		service.insertEmployee(employee);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
@@ -43,15 +46,17 @@ public class EmployeeController {
 		return ResponseEntity.created(uri).build();
 	}
 	
-	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+	@DeleteMapping(value = "/delete/{id}")
 	public ResponseEntity<String> deleteEmployee(@PathVariable Long id) throws Exception{
 		service.deleteEmployee(id);
 		return ResponseEntity.ok().body("Employee Id: " + id + " Deleted." );
 	}
 	
-	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+	@PutMapping(value = "/update/{id}")
 	public Employee updateEmployee(@RequestBody Employee employee, @PathVariable Long id){
 		return service.updateEmployee(id, employee);
 	}
+	
+	
 	
 }

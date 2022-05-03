@@ -1,5 +1,5 @@
 package com.cerc.paymentsRegister.service;
-
+/*
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -37,9 +37,7 @@ public class MyEmployeeDetails implements UserDetails, Serializable {
 		Position role = user.getPosition();
 		List<SimpleGrantedAuthority> authorities = new ArrayList<>();
 
-		/*for (Position role : roles) {
-			authorities.add(new SimpleGrantedAuthority(role.getName()));
-		}*/
+		
 
 		authorities.add(new SimpleGrantedAuthority(role.getDescription()));
 		return authorities;
@@ -83,3 +81,5 @@ public class MyEmployeeDetails implements UserDetails, Serializable {
 		this.id = id;
 	}
 }
+
+*/

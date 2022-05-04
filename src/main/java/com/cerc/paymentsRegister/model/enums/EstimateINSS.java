@@ -2,10 +2,10 @@ package com.cerc.paymentsRegister.model.enums;
 
 public enum EstimateINSS {
 
-	FAIXA1(0, 0.00, 1212.00, 7.50), 
-	FAIXA2(1, 1212.01, 2427.35, 9.0), 
-	FAIXA3(2, 2427.36, 3641.03, 12.0),
-	FAIXA4(3, 3641.04, 7087.22, 14.0);
+	FAIXA1(0, 0.00, 1212.00, 0.075), 
+	FAIXA2(1, 1212.01, 2427.35, 0.09), 
+	FAIXA3(2, 2427.36, 3641.03, 0.12),
+	FAIXA4(3, 3641.04, 7087.22, 0.14);
 
 	private int cod;
 	private double baseSalary;

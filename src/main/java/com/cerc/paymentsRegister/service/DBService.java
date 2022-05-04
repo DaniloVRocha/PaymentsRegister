@@ -62,11 +62,11 @@ public class DBService {
 		
 		employeeRepository.saveAll(Arrays.asList(emp, emp2, emp3, emp4));
 		
-		Payroll payroll = new Payroll(null, emp, 168.0 ,Month.MAY);
+		Payroll payroll = new Payroll(null, emp ,Month.MAY);
 		
 		payrollRepository.save(payroll);
 		
-		Discount disc = new Discount(null, payroll, Month.MAY, EstimateINSS.FAIXA2.getPercentage());
+		Discount disc = new Discount(null, "INSS", 1200.00, Month.MAY, EstimateINSS.FAIXA2.getPercentage());
 		
 		discountRepository.save(disc);
 		

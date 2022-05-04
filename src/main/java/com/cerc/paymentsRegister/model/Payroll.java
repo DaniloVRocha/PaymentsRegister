@@ -6,6 +6,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
@@ -17,7 +18,7 @@ import javax.persistence.Table;
 public class Payroll {
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
 	@OneToOne
@@ -44,11 +45,10 @@ public class Payroll {
 		super();
 	}
 
-	public Payroll(Long id, Employee employee, Double workHours, Month month) {
+	public Payroll(Long id, Employee employee, Month month) {
 		super();
 		this.id = id;
 		this.employee = employee;
-		this.workHours = workHours;
 		this.month = month;
 	}
 

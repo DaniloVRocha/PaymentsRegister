@@ -6,6 +6,7 @@ import java.util.List;
 import com.cerc.paymentsRegister.model.Discount;
 import com.cerc.paymentsRegister.model.Employee;
 import com.cerc.paymentsRegister.model.Payment;
+import com.cerc.paymentsRegister.model.Payroll;
 
 public class PayrollDTO {
 
@@ -26,6 +27,23 @@ public class PayrollDTO {
 	private Double totalPayments;
 
 	private Double netSalary;
+	
+
+	public PayrollDTO() {
+		super();
+	}
+
+	public PayrollDTO(Payroll payroll) {
+		super();
+		this.id = payroll.getId();
+		this.employee = payroll.getEmployee();
+		this.discounts = payroll.getDiscounts();
+		this.payments = payroll.getPayments();
+		this.month = payroll.getMonth();
+		this.totalDiscounts = payroll.getTotalDiscounts();
+		this.totalPayments = payroll.getTotalPayments();
+		this.netSalary = payroll.getNetSalary();
+	}
 
 	public Long getId() {
 		return id;

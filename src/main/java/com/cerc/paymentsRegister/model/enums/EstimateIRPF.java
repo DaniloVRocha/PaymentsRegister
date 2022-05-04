@@ -13,7 +13,7 @@ public enum EstimateIRPF {
 	private double limitSalary;
 	private double percentage;
 
-	private EstimateIRPF(int cod, double baseSalary, double limitSalary, double percentage) {
+	EstimateIRPF(int cod, double baseSalary, double limitSalary, double percentage) {
 		this.cod = cod;
 		this.baseSalary = baseSalary;
 		this.limitSalary = limitSalary;

@@ -1,18 +1,8 @@
 package com.cerc.paymentsRegister.model;
 
+import javax.persistence.*;
 import java.time.Month;
 import java.util.List;
-
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
 
 @Entity
 @Table(name = "payroll")
@@ -29,16 +19,9 @@ public class Payroll {
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "payroll")
 	private List<Discount> discounts;
 
-	@OneToMany(cascade = CascadeType.ALL)
-	private List<Payment> payments;
-
-	private Double workHours;
-
 	private Month month;
 
 	private Double totalDiscounts;
-
-	private Double totalPayments;
 
 	private Double netSalary;
 
@@ -51,14 +34,6 @@ public class Payroll {
 		this.id = id;
 		this.employee = employee;
 		this.month = month;
-	}
-
-	public List<Payment> getPayments() {
-		return payments;
-	}
-
-	public void setPayments(List<Payment> payments) {
-		this.payments = payments;
 	}
 
 	public Long getId() {
@@ -85,14 +60,6 @@ public class Payroll {
 		this.discounts = discounts;
 	}
 
-	public Double getWorkHours() {
-		return workHours;
-	}
-
-	public void setWorkHours(Double workHours) {
-		this.workHours = workHours;
-	}
-
 	public Month getMonth() {
 		return month;
 	}
@@ -115,14 +82,6 @@ public class Payroll {
 
 	public void setTotalDiscounts(Double totalDiscounts) {
 		this.totalDiscounts = totalDiscounts;
-	}
-
-	public Double getTotalPayments() {
-		return totalPayments;
-	}
-
-	public void setTotalPayments(Double totalPayments) {
-		this.totalPayments = totalPayments;
 	}
 
 }

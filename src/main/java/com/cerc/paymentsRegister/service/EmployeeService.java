@@ -1,19 +1,17 @@
 package com.cerc.paymentsRegister.service;
 
-import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
-
-import javax.transaction.Transactional;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import com.cerc.paymentsRegister.dto.EmployeeDTO;
 import com.cerc.paymentsRegister.model.Employee;
 import com.cerc.paymentsRegister.parser.EmployeeParser;
 import com.cerc.paymentsRegister.repository.EmployeeRepository;
 import com.cerc.paymentsRegister.service.exception.NotFoundException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import javax.transaction.Transactional;
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class EmployeeService {
@@ -55,7 +53,7 @@ public class EmployeeService {
 	}
 
 	@Transactional
-	private void updateData(Employee newEmployee, Employee employee) {
+	void updateData(Employee newEmployee, Employee employee) {
 		if (newEmployee.getName() != null) {
 			newEmployee.setName(employee.getName());
 		}

@@ -1,19 +1,5 @@
 package com.cerc.paymentsRegister.service;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.Month;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.stream.Collectors;
-
-import javax.transaction.Transactional;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import com.cerc.paymentsRegister.dto.PayrollDTO;
 import com.cerc.paymentsRegister.model.Discount;
 import com.cerc.paymentsRegister.model.Employee;
@@ -24,6 +10,18 @@ import com.cerc.paymentsRegister.parser.PayrollParser;
 import com.cerc.paymentsRegister.repository.DiscountRepository;
 import com.cerc.paymentsRegister.repository.PayrollRepository;
 import com.cerc.paymentsRegister.service.exception.NotFoundException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import javax.transaction.Transactional;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.Month;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.stream.Collectors;
 
 
 @Service
@@ -45,8 +43,7 @@ public class PayrollService {
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 		Date dateConsulting = sdf.parse(date);
 		Payroll payroll = payrollRepository.findPayrollMonthByIdEmployee(id,  Month.of(dateConsulting.getMonth() + 1));
-		PayrollDTO payrollDto = new PayrollDTO(payroll);
-		return payrollDto;
+		return new PayrollDTO(payroll);
 	}
 
 	@Transactional
@@ -70,6 +67,7 @@ public class PayrollService {
 		for(Discount discount: discounts) {
 			totalDiscounts += discount.getTotalDiscount();
 		}
+
 		netSalary = employee.getPosition().getSalary() - totalDiscounts;
 		
 		payroll.setNetSalary(netSalary);
@@ -81,10 +79,8 @@ public class PayrollService {
 			payrollRepository.save(payroll);
 			discountRepository.saveAll(discounts);
 		}
-		
-		PayrollDTO payrollDto = new PayrollDTO(payroll);
-		
-		return payrollDto;
+
+		return new PayrollDTO(payroll);
 		
 	}
 	
@@ -127,15 +123,16 @@ public class PayrollService {
 			percentage = EstimateIRPF.FAIXA5.getPercentage();
 			deduction = 869.36;
 		}
+
 		totalDiscount = (salary * percentage) - deduction;
-		Discount discountIRFF =  new Discount(null,"IRPF", totalDiscount, LocalDate.now().getMonth(), percentage);
-		discountIRFF.setPayroll(payroll);
-		return discountIRFF;
+
+		Discount discountIRPF =  new Discount(null,"IRPF", totalDiscount, LocalDate.now().getMonth(), percentage);
+		discountIRPF.setPayroll(payroll);
+		return discountIRPF;
 	}
 	
 	public Integer payrollExist(Long id, Month month) {
-		Integer quantidadeRegistro = payrollRepository.countRegister(id, month);
-		return quantidadeRegistro;
+		return payrollRepository.countRegister(id, month);
 	}
 	
 }

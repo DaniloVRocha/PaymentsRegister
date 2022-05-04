@@ -1,18 +1,17 @@
 package com.cerc.paymentsRegister.config;
 
-import java.text.ParseException;
-
+import com.cerc.paymentsRegister.service.DBService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
-import com.cerc.paymentsRegister.service.DBService;
+import java.text.ParseException;
 
 @Configuration
 @Profile("test")
 public class TestConfig {
-	
+
 	@Autowired
 	private DBService dbService;
 

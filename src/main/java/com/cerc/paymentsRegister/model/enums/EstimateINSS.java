@@ -12,7 +12,7 @@ public enum EstimateINSS {
 	private double limitSalary;
 	private double percentage;
 
-	private EstimateINSS(int cod, double baseSalary, double limitSalary, double percentage) {
+	EstimateINSS(int cod, double baseSalary, double limitSalary, double percentage) {
 		this.cod = cod;
 		this.baseSalary = baseSalary;
 		this.limitSalary = limitSalary;

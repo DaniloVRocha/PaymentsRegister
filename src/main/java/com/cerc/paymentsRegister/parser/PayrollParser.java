@@ -15,11 +15,8 @@ public class PayrollParser {
 		dto.setId(entidade.getId());
 		dto.setEmployee(entidade.getEmployee());
 		dto.setMonth(entidade.getMonth());
-		dto.setPayments(entidade.getPayments());
 		dto.setDiscounts(entidade.getDiscounts());
 		dto.setTotalDiscounts(entidade.getTotalDiscounts());
-		dto.setTotalPayments(entidade.getTotalPayments());
-		dto.setWorkHours(entidade.getWorkHours());
 		dto.setNetSalary(entidade.getNetSalary());
 
 		return dto;

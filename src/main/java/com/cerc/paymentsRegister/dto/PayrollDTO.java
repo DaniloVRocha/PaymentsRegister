@@ -1,12 +1,11 @@
 package com.cerc.paymentsRegister.dto;
 
-import java.time.Month;
-import java.util.List;
-
 import com.cerc.paymentsRegister.model.Discount;
 import com.cerc.paymentsRegister.model.Employee;
-import com.cerc.paymentsRegister.model.Payment;
 import com.cerc.paymentsRegister.model.Payroll;
+
+import java.time.Month;
+import java.util.List;
 
 public class PayrollDTO {
 
@@ -16,15 +15,9 @@ public class PayrollDTO {
 
 	private List<Discount> discounts;
 
-	private List<Payment> payments;
-
-	private Double workHours;
-
 	private Month month;
 
 	private Double totalDiscounts;
-
-	private Double totalPayments;
 
 	private Double netSalary;
 	
@@ -38,10 +31,8 @@ public class PayrollDTO {
 		this.id = payroll.getId();
 		this.employee = payroll.getEmployee();
 		this.discounts = payroll.getDiscounts();
-		this.payments = payroll.getPayments();
 		this.month = payroll.getMonth();
 		this.totalDiscounts = payroll.getTotalDiscounts();
-		this.totalPayments = payroll.getTotalPayments();
 		this.netSalary = payroll.getNetSalary();
 	}
 
@@ -69,22 +60,6 @@ public class PayrollDTO {
 		this.discounts = discounts;
 	}
 
-	public List<Payment> getPayments() {
-		return payments;
-	}
-
-	public void setPayments(List<Payment> payments) {
-		this.payments = payments;
-	}
-
-	public Double getWorkHours() {
-		return workHours;
-	}
-
-	public void setWorkHours(Double workHours) {
-		this.workHours = workHours;
-	}
-
 	public Month getMonth() {
 		return month;
 	}
@@ -99,14 +74,6 @@ public class PayrollDTO {
 
 	public void setTotalDiscounts(Double totalDiscounts) {
 		this.totalDiscounts = totalDiscounts;
-	}
-
-	public Double getTotalPayments() {
-		return totalPayments;
-	}
-
-	public void setTotalPayments(Double totalPayments) {
-		this.totalPayments = totalPayments;
 	}
 
 	public Double getNetSalary() {

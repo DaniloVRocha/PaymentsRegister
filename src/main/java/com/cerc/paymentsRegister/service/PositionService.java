@@ -1,20 +1,18 @@
 package com.cerc.paymentsRegister.service;
 
-import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
-
-import javax.transaction.Transactional;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import com.cerc.paymentsRegister.dto.PositionDTO;
 import com.cerc.paymentsRegister.model.Employee;
 import com.cerc.paymentsRegister.model.Position;
 import com.cerc.paymentsRegister.parser.PositionParser;
 import com.cerc.paymentsRegister.repository.PositionRepository;
 import com.cerc.paymentsRegister.service.exception.NotFoundException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import javax.transaction.Transactional;
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class PositionService {
@@ -54,7 +52,7 @@ public class PositionService {
 	}
 	
 	@Transactional
-	private void updateData(Position newPosition, Position position) {
+	void updateData(Position newPosition, Position position) {
 
 		if (position.getDescription() != null) {
 			newPosition.setDescription(position.getDescription());

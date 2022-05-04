@@ -10,6 +10,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "discount")
 public class Discount {
@@ -20,7 +22,12 @@ public class Discount {
 
 	@ManyToOne
 	@JoinColumn(name = "fk_payroll_id")
+	@JsonIgnore
 	private Payroll payroll;
+
+	private String nameDiscount;
+
+	private Double totalDiscount;
 
 	private Month month;
 
@@ -29,11 +36,12 @@ public class Discount {
 	public Discount() {
 		super();
 	}
-	
-	public Discount(Long id, Payroll payroll, Month month, Double percentage) {
+
+	public Discount(Long id, String nameDiscount, Double totalDiscount, Month month, Double percentage) {
 		super();
 		this.id = id;
-		this.payroll = payroll;
+		this.nameDiscount = nameDiscount;
+		this.totalDiscount = totalDiscount;
 		this.month = month;
 		this.percentage = percentage;
 	}
@@ -68,6 +76,22 @@ public class Discount {
 
 	public void setMonth(Month month) {
 		this.month = month;
+	}
+
+	public String getNameDiscount() {
+		return nameDiscount;
+	}
+
+	public void setNameDiscount(String nameDiscount) {
+		this.nameDiscount = nameDiscount;
+	}
+
+	public Double getTotalDiscount() {
+		return totalDiscount;
+	}
+
+	public void setTotalDiscount(Double totalDiscount) {
+		this.totalDiscount = totalDiscount;
 	}
 
 }

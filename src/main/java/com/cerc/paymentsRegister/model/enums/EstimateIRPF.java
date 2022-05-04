@@ -3,10 +3,10 @@ package com.cerc.paymentsRegister.model.enums;
 public enum EstimateIRPF {
 
 	FAIXA1(0, 0.00, 1903.98, 0.0), 
-	FAIXA2(1, 1903.99, 2826.65, 7.50), 
-	FAIXA3(2, 2826.66, 3751.05, 15.0),
-	FAIXA4(3, 3751.06, 4664.68, 22.5),
-	FAIXA5(4, 4664.68, 7087.22, 27.5);
+	FAIXA2(1, 1903.99, 2826.65, 0.075), 
+	FAIXA3(2, 2826.66, 3751.05, 0.15),
+	FAIXA4(3, 3751.06, 4664.68, 0.225),
+	FAIXA5(4, 4664.68, 7087.22, 0.275);
 
 	private int cod;
 	private double baseSalary;

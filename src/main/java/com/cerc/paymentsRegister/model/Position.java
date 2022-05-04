@@ -27,6 +27,7 @@ public class Position {
 	private Double salary;
 	@OneToOne
 	private Department department;
+	
 
 	public Position() {
 		super();

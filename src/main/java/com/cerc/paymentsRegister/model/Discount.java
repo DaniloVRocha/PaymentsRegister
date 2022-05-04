@@ -37,7 +37,8 @@ public class Discount {
 		super();
 	}
 
-	public Discount(Long id, String nameDiscount, Double totalDiscount, Month month, Double percentage) {
+	public Discount(Long id, String nameDiscount, Double totalDiscount, Month month,
+			Double percentage) {
 		super();
 		this.id = id;
 		this.nameDiscount = nameDiscount;

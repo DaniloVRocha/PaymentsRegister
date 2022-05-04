@@ -28,18 +28,20 @@
 ### Pré-requisitos
 
 Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
-[Git](https://git-scm.com), [Java](https://www.java.com/pt-BR/), [Maven](https://maven.apache.org/download.cgi). 
+[Git](https://git-scm.com), [Java](https://www.java.com/pt-BR/), [Maven](https://maven.apache.org/download.cgi) e [Docker](https://www.docker.com) 
 Além disto é bom ter um editor para trabalhar com o código como [STS4](https://spring.io/tools)
 
 ### 🎲 Rodando o Back End (servidor)
 
 ```bash
 # Clone este repositório
-$ git clone <https://github.com/tgmarinho/nlw1>
+$ git clone <https://github.com/DaniloVRocha/PaymentsRegister.git>
 
 # Abra a sua IDE e importe o projeto como MAVEN PROJECT
 
 # Instale as dependências
+
+# No terminal execute docker-compose up -d
 
 # Execute a aplicação 
 
@@ -54,5 +56,6 @@ As seguintes ferramentas foram usadas na construção do projeto:
 - [Maven](https://maven.apache.org/download.cgi)
 - [Spring Boot](https://spring.io/projects/spring-boot)
 - [Spring Security](https://spring.io/projects/spring-security)
-- [PostgresSQL](https://www.postgresql.org/)
+- [Docker](https://www.docker.com)
+- [MySQL](https://www.mysql.com/)
 - [Swagger](https://swagger.io/)

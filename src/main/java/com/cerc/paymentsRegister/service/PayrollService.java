@@ -9,6 +9,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -47,7 +49,7 @@ public class PayrollService {
 		return payrollDto;
 	}
 
-	@SuppressWarnings("deprecation")
+	@Transactional
 	public PayrollDTO generatePayroll(Long id, String date) throws ParseException {
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 		Date dateConsulting = sdf.parse(date);
@@ -61,9 +63,9 @@ public class PayrollService {
 		Payroll payroll = new Payroll(null, employee, Month.of(dateConsulting.getMonth() + 1));
 		List<Discount> discounts = new ArrayList<>();
 		
-		discounts.add(calculateINSS(payroll.getEmployee().getPosition().getSalary()));
+		discounts.add(calculateINSS(payroll));
 		if(payroll.getEmployee().getPosition().getSalary() >= EstimateIRPF.FAIXA2.getBaseSalary()) {
-			discounts.add(calculateIRPF(payroll.getEmployee().getPosition().getSalary()));
+			discounts.add(calculateIRPF(payroll));
 		}
 		for(Discount discount: discounts) {
 			totalDiscounts += discount.getTotalDiscount();
@@ -73,8 +75,12 @@ public class PayrollService {
 		payroll.setNetSalary(netSalary);
 		payroll.setTotalDiscounts(totalDiscounts);
 		payroll.setDiscounts(discounts);
-		
-		savePayroll(payroll, discounts);
+
+		Integer quantidadeRegistro = payrollRepository.countRegister(payroll.getEmployee().getId(), payroll.getMonth());
+		if(quantidadeRegistro == 0) {
+			payrollRepository.save(payroll);
+			discountRepository.saveAll(discounts);
+		}
 		
 		PayrollDTO payrollDto = new PayrollDTO(payroll);
 		
@@ -82,8 +88,9 @@ public class PayrollService {
 		
 	}
 	
-	public Discount calculateINSS(Double salary) {
+	public Discount calculateINSS(Payroll payroll) {
 		Double percentage = 0.0;
+		Double salary = payroll.getEmployee().getPosition().getSalary();
 		
 		if(salary <= EstimateINSS.FAIXA1.getLimitSalary()) {
 			percentage = EstimateINSS.FAIXA1.getPercentage();
@@ -95,13 +102,16 @@ public class PayrollService {
 			percentage = EstimateINSS.FAIXA4.getPercentage();
 		}
 		Discount discountINSS = new Discount(null,"INSS", salary * percentage, LocalDate.now().getMonth(), percentage);
+		discountINSS.setPayroll(payroll);
 		return discountINSS;
 	}
 	
-	public Discount calculateIRPF(Double salary) {
+	public Discount calculateIRPF(Payroll payroll) {
 		Double percentage = 0.0;
 		Double deduction = 0.0;
 		Double totalDiscount = 0.0;
+		Double salary = payroll.getEmployee().getPosition().getSalary();
+		
 		if(salary <= EstimateIRPF.FAIXA1.getLimitSalary()) {
 			percentage = EstimateIRPF.FAIXA1.getPercentage();
 		}else if(salary >= EstimateIRPF.FAIXA2.getBaseSalary() && salary <= EstimateIRPF.FAIXA2.getLimitSalary()) {
@@ -119,20 +129,13 @@ public class PayrollService {
 		}
 		totalDiscount = (salary * percentage) - deduction;
 		Discount discountIRFF =  new Discount(null,"IRPF", totalDiscount, LocalDate.now().getMonth(), percentage);
+		discountIRFF.setPayroll(payroll);
 		return discountIRFF;
 	}
 	
 	public Integer payrollExist(Long id, Month month) {
 		Integer quantidadeRegistro = payrollRepository.countRegister(id, month);
 		return quantidadeRegistro;
-	}
-	
-	public void savePayroll(Payroll payroll, List<Discount> discounts) {
-		Integer quantidadeRegistro = payrollRepository.countRegister(payroll.getEmployee().getId(), payroll.getMonth());
-		if(quantidadeRegistro == 0) {
-			discountRepository.saveAll(discounts);
-			payrollRepository.save(payroll);
-		}
 	}
 	
 }

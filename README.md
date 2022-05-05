@@ -46,6 +46,8 @@ $ git clone <https://github.com/DaniloVRocha/PaymentsRegister.git>
 # Execute a aplicação 
 
 # O servidor inciará na porta:8080 - acesse <http://localhost:8080>
+
+# Swagger: <http://localhost:8080/swagger-payment.html>
 ```
 
 ### 🛠 Tecnologias

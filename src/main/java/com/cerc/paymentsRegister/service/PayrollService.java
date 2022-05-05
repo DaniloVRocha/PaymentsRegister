@@ -54,7 +54,7 @@ public class PayrollService {
 		Double totalDiscounts = 0.0;
 		Double netSalary;
 		if(employee == null) {
-			throw new NotFoundException("Funcionario não Existe");
+			throw new NotFoundException("Employee does not exists");
 		}
 		
 		Payroll payroll = new Payroll(null, employee, Month.of(dateConsulting.getMonth() + 1));

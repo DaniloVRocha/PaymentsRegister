@@ -24,7 +24,7 @@ public class DepartmentController {
     @Autowired
     private DepartmentService service;
 
-    @GetMapping
+    @GetMapping(value = "/all")
     @Operation(
             summary = "Lista todos os departamentos",
             tags = {"Departamentos"},
@@ -65,7 +65,7 @@ public class DepartmentController {
 
     }
 
-    @PostMapping
+    @PostMapping(value = "/new")
     @Operation(
             summary = "Cria departamentos",
             tags = {"Departamentos"},
@@ -84,7 +84,7 @@ public class DepartmentController {
         return ResponseEntity.ok().build();
     }
 
-    @DeleteMapping(path = "/{id}")
+    @DeleteMapping(path = "/delete/{id}")
     @Operation(
             summary = "Deleta departamentos por Id",
             tags = {"Departamentos"},
@@ -103,7 +103,7 @@ public class DepartmentController {
         return ResponseEntity.ok().body("Departamento id " + id + " deletado com sucesso. ");
     }
 
-    @PutMapping(path = "/{id}")
+    @PutMapping(path = "/update/{id}")
     @Operation(
             summary = "Atualiza departamentos por Id",
             tags = {"Departamentos"},

@@ -22,7 +22,7 @@ public class PositionController {
 	@Autowired
 	private PositionService service;
 	
-	@GetMapping
+	@GetMapping(value = "/all")
 	@Operation(
 			summary = "Lista todos os cargos",
 			tags = { "Cargos" },
@@ -61,7 +61,7 @@ public class PositionController {
 		return ResponseEntity.ok().body(position);
 	}
 	
-	@PostMapping
+	@PostMapping(value = "/new")
 	@Operation(
 			summary = "Cria cargos",
 			tags = { "Cargos" },
@@ -80,7 +80,7 @@ public class PositionController {
 		return ResponseEntity.ok().build();
 	}
 	
-	@DeleteMapping(value = "/{id}")
+	@DeleteMapping(value = "/delete/{id}")
 	@Operation(
 			summary = "Deleta cargos por Id",
 			tags = { "Cargos" },
@@ -99,7 +99,7 @@ public class PositionController {
 		return ResponseEntity.ok().body("Cargo Id: " + id + " Deletado com sucesso." );
 	}
 	
-	@PutMapping(value = "/{id}")
+	@PutMapping(value = "/update/{id}")
 	@Operation(
 			summary = "Atualiza cargos por Id",
 			tags = { "Cargos" },

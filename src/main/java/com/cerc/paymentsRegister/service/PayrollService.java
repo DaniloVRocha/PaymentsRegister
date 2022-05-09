@@ -74,8 +74,8 @@ public class PayrollService {
 		payroll.setTotalDiscounts(totalDiscounts);
 		payroll.setDiscounts(discounts);
 
-		Integer quantidadeRegistro = payrollRepository.countRegister(payroll.getEmployee().getId(), payroll.getMonth());
-		if(quantidadeRegistro == 0) {
+		Integer numberOfRecords = payrollRepository.countRegister(payroll.getEmployee().getId(), payroll.getMonth());
+		if(numberOfRecords == 0) {
 			payrollRepository.save(payroll);
 			discountRepository.saveAll(discounts);
 		}
@@ -94,7 +94,7 @@ public class PayrollService {
 			percentage = EstimateINSS.FAIXA2.getPercentage();	
 		}else if(salary >= EstimateINSS.FAIXA3.getBaseSalary() && salary <= EstimateINSS.FAIXA3.getLimitSalary()) {
 			percentage = EstimateINSS.FAIXA3.getPercentage();
-		}else if(salary >= EstimateINSS.FAIXA4.getBaseSalary() && salary <= EstimateINSS.FAIXA4.getLimitSalary()){
+		}else if(salary >= EstimateINSS.FAIXA4.getBaseSalary()){
 			percentage = EstimateINSS.FAIXA4.getPercentage();
 		}
 		Discount discountINSS = new Discount(null,"INSS", salary * percentage, LocalDate.now().getMonth(), percentage);
@@ -119,7 +119,7 @@ public class PayrollService {
 		}else if(salary >= EstimateIRPF.FAIXA4.getBaseSalary() && salary <= EstimateIRPF.FAIXA4.getLimitSalary()) {
 			percentage = EstimateIRPF.FAIXA4.getPercentage();
 			deduction = 636.13;
-		}else if(salary >= EstimateIRPF.FAIXA5.getBaseSalary() && salary <= EstimateIRPF.FAIXA5.getLimitSalary()) {
+		}else if(salary >= EstimateIRPF.FAIXA5.getBaseSalary() ) {
 			percentage = EstimateIRPF.FAIXA5.getPercentage();
 			deduction = 869.36;
 		}

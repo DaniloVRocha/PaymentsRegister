@@ -26,7 +26,7 @@ public class PayrollController {
     @Autowired
     private PayrollService service;
 
-    @GetMapping(value = "/show-all")
+    @GetMapping(value = "/all")
     @Operation(
             summary = "Lista todas as folhas de pagamento",
             tags = {"Folha de Pagamento"},

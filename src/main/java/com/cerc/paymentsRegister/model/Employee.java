@@ -21,10 +21,17 @@ public class Employee {
 	private String password;
 	
 	private String cpf;
-	
+
 	@ManyToOne
 	@JoinColumn(name="fk_position_id")
+	@JoinTable(name= "position_employe", joinColumns = @JoinColumn(
+			name = "position_id", referencedColumnName = "id"),
+			inverseJoinColumns = @JoinColumn (
+					name = "employee_id", referencedColumnName = "id"))
+
 	private Position position;
+
+
 	
 	private boolean active;
 

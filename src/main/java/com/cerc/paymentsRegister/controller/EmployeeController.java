@@ -25,7 +25,7 @@ public class EmployeeController {
     @Autowired
     private EmployeeService service;
 
-    @GetMapping(value = "/show-all")
+    @GetMapping(value = "/all")
     @Operation(
             summary = "Lista todos os funcionários",
             tags = {"Funcionários"},
